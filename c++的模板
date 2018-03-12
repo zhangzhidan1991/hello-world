@@ -1,0 +1,32 @@
+
+在C++的Template中很多地方都用到了typename与class这两个关键字，有时候这两者可以替换，那么这两个关键字是否完全一样呢？
+事实上class用于定义类，在模板引入c++后，最初定义模板的方法为:template<class T>,这里class关键字表明T是一个类型，后来
+为了避免class在这两个地方的使用可能给人带来混淆，所以引入了typename这个关键字，它的作用同class一样表明后面的符号为一
+个类型，这样在定义模板的时候可以使用下面的方式了:
+template<typename T>.在模板定义语法中关键字class与typename的作用完全一样
+  
+类模板：相当于对类的抽象（可以用来生成类），使得类中的某些数据成员、默认成员函数的参数，某些成员函数的返回值，能够
+取任意类型(包括系统预定义的和用户自定义的)。
+
+声明一个类模板的格式：
+template<typename T>
+class Test
+{
+public:
+   Test()
+   Test(T k);
+private:
+   const T i;
+   T n;
+}
+
+在类外面定义成员函数：
+template<class T>
+Test<T>::Test(T k):i(k)
+{ 
+  n=k;
+}
+
+模板类：相当于一个类模板的具体对象，通过制定类型T
+类模板的使用实际上是将类模板实例化成一个具体的类，它的格式为：类名<实际的类型>
+如:Test<int> a; //生成一个具体对象a
