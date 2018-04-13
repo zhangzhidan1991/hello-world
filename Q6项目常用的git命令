@@ -1,0 +1,12 @@
+git fetch origin develop:feature/xxxx --把远程仓库上的develop拉到本地，命名为feature/xxxx，初创分支用一次
+
+git checkout develop      --切换到主干
+git checkout feature/xxxx  --切换分支
+git checkout  filename   --还原掉对某文件所做的修改
+
+git status          --查看所做的改动文件列表(add 之前先运行这个命令)
+git add dirname or filename --添加改动的文件到暂存区 
+git commit -m "注释"   --提交改动的文件到本地仓库
+
+git pull origin develop --rebase  --推送到远端之前先拉一次最新的主干代码到当前分支
+git push origin feature/xxxx   --推送当前的分支到远端
