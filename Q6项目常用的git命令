@@ -8,5 +8,6 @@ git status          --查看所做的改动文件列表(add 之前先运行这�
 git add dirname or filename --添加改动的文件到暂存区 
 git commit -m "注释"   --提交改动的文件到本地仓库
 
+你的代码是要合进主干或者需要打分支包才有需要提交到远程仓库，在合进主干前需要rebase
 git pull origin develop --rebase  --推送到远端之前先拉一次最新的主干代码到当前分支
 git push origin feature/xxxx   --推送当前的分支到远端
