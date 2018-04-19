@@ -29,4 +29,4 @@ git push origin bugfix/zhz_xxx
 
 
 git stash  --将分支上的修改提交到git栈中而不提交到仓库
-git stash apply --切换回来该分支时将上次的修改还原
+git stash apply --将上次的修改还原
