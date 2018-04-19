@@ -15,7 +15,8 @@ git push origin feature/xxxx   --推送当前的分支到远端
 
 在主开发分支操作
 git pull
-git chekcout -b bugfix/zhz_xxx
+git chekcout -b bugfix/zhz_xxx  //新建修复BUG分支
+git chekcout -b feature/zhz_xxx  //新建开发分支
 
 --在相应的开发分支上操作
 git add .
