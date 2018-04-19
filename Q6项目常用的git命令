@@ -11,3 +11,17 @@ git commit -m "注释"   --提交改动的文件到本地仓库
 你的代码是要合进主干或者需要打分支包才有需要提交到远程仓库，在合进主干前需要rebase
 git pull origin develop --rebase  --推送到远端之前先拉一次最新的主干代码到当前分支
 git push origin feature/xxxx   --推送当前的分支到远端
+
+
+在主开发分支操作
+git pull
+git chekcout -b bugfix/zhz_xxx
+
+--在相应的开发分支上操作
+git add .
+git commit -m "改了XXX"
+
+git fetch
+git rebase origin/develop
+
+git push origin bugfix/zhz_xxx
