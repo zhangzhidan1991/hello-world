@@ -4,9 +4,6 @@ git checkout develop      --切换到主干
 git checkout feature/xxxx  --切换分支
 git checkout  filename   --还原掉对某文件所做的修改
 
-git status          --查看所做的改动文件列表(add 之前先运行这个命令)
-git add dirname or filename --添加改动的文件到暂存区 
-git commit -m "注释"   --提交改动的文件到本地仓库
 
 你的代码是要合进主干或者需要打分支包才有需要提交到远程仓库，在合进主干前需要rebase
 git pull origin develop --rebase  --推送到远端之前先拉一次最新的主干代码到当前分支
@@ -18,15 +15,18 @@ git pull
 git chekcout -b bugfix/zhz_xxx  //新建修复BUG分支
 git chekcout -b feature/zhz_xxx  //新建开发分支
 
---在相应的开发分支上操作
-git add .
-git commit -m "改了XXX"
+git status          --查看所做的改动文件列表(add 之前先运行这个命令)
+git add dirname or filename --添加改动的文件到暂存区 
+git commit -m "注释"   --提交改动的文件到本地仓库
 
 git fetch
-git rebase origin/develop
-
+git rebase origin/develop  --把develop分支合到当前分支
 git push origin bugfix/zhz_xxx
 
 
-git stash  --将分支上的修改提交到git栈中而不提交到仓库
-git stash apply --将上次的修改还原
+git stash 可用来暂存当前正在进行的工作， 比如想pull 最新代码， 又不想加新commit， 或者另外一
+种情况，为了fix 一个紧急的bug,  先stash, 使返回到自己上一个commit, 改完bug之后再stash pop, 继续原来的工作。
+基础命令：
+$git stash
+$do some work
+$git stash pop
