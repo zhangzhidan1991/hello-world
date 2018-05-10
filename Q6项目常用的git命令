@@ -23,7 +23,8 @@ git fetch
 git rebase origin/develop  --把develop分支合到当前分支
 git push origin bugfix/zhz_xxx
 
-
+ git pull --rebase origin 分支名   --把某个分支拉过来
+ 
 git stash 可用来暂存当前正在进行的工作， 比如想pull 最新代码， 又不想加新commit， 或者另外一
 种情况，为了fix 一个紧急的bug,  先stash, 使返回到自己上一个commit, 改完bug之后再stash pop, 继续原来的工作。
 基础命令：
