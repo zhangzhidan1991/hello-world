@@ -19,7 +19,7 @@ git status          --查看所做的改动文件列表(add 之前先运行这�
 git add dirname or filename --添加改动的文件到暂存区 
 git commit -m "注释"   --提交改动的文件到本地仓库
 
-git fetch
+git fetch  --保证本地的develop最新
 git rebase origin/develop  --把develop分支合到当前分支
 git push origin bugfix/zhz_xxx
 
