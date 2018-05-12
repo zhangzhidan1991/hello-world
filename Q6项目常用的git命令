@@ -23,6 +23,8 @@ git fetch  --保证本地的develop最新
 git rebase origin/develop  --把develop分支合到当前分支
 git push origin bugfix/zhz_xxx
 
+git pull origin xx --把远端的代码拉过来
+
  git pull --rebase origin 分支名   --把某个分支拉过来
  
 git stash 可用来暂存当前正在进行的工作， 比如想pull 最新代码， 又不想加新commit， 或者另外一
