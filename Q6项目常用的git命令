@@ -33,3 +33,7 @@ git stash 可用来暂存当前正在进行的工作， 比如想pull 最新代�
 $git stash
 $do some work
 $git stash pop
+
+删除commit记录方法(删除push失败的记录)
+使用git log命令查看commit的历史记录及其对应的commit_id
+git reset --hard <commit_id> 
