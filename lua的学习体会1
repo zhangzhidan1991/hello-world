@@ -15,6 +15,6 @@
   pStack即为该堆栈,存入栈的数据类型包括数值, 字符串, 指针, talbe, 闭包等
   
   lua_State保存了整个Lua解释器的状态，每一个运行的脚本文件都在一个动态分配的叫做lua_State的数据结构中运行
-  lua_State *tolua_s=pStack->getLuaStack();
+  lua_State *L = pStack->getLuaState();
   
   详情请见博客：https://www.cnblogs.com/sevenyuan/p/4511808.html
