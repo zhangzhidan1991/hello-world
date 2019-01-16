@@ -9,6 +9,12 @@
   要理解Lua和C++交互，首先要理解Lua堆栈。简单来说，Lua和C/C++语言通信的主要方法是一个无处不在的虚拟栈。栈的特点是先进后出。
   在Lua中，Lua堆栈就是一个struct，堆栈索引的方式可是是正数也可以是负数，区别是：正数索引1永远表示栈底（该值从栈底向栈顶递增,如1，2...)
   负数索引-1永远表示栈顶（该值从栈顶向栈底递减，如-1，-2...）
-  这个栈是在创建lua_State的时候创建的，存入栈的数据类型包括数值, 字符串, 指针, talbe, 闭包等
+  
+  CCLuaEngine* pEngine = CCLuaEngine::defaultEngine();
+  CCLuaStack *pStack=pEngine->getLuaStack();
+  pStack即为该堆栈,存入栈的数据类型包括数值, 字符串, 指针, talbe, 闭包等
+  
+  lua_State保存了整个Lua解释器的状态，每一个运行的脚本文件都在一个动态分配的叫做lua_State的数据结构中运行
+  lua_State *tolua_s=pStack->getLuaStack();
   
   详情请见博客：https://www.cnblogs.com/sevenyuan/p/4511808.html
