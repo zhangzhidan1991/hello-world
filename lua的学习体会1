@@ -22,6 +22,7 @@
 
    lua_pushvalue (lua_State *L, int index)：将栈中索引index对应的元素拷贝一份，压到栈顶
    lua_remove(lua_State *L, int index)：将栈中索引index对应的元素移除，该索引之上的元素将移动以填补空缺
+   lua_insert(lua_State *L, int index)：弹出栈顶元素，并插入索引index位置  
    lua_replace(lua_State* L, int index)：将栈顶元素压入索引index对应的位置而不移动任何元素，同时弹出栈顶元素（因此指定位置的元素的值被替换）
    lua_getglobal(lua_State *L, const char *name)：把全局的name的值压到栈顶
    lua_getfield (lua_State *L, int index, const char *k)：把t[k]值压入栈顶，这里的t是指有效索引index指向的值。在Lua中，这个函数可能触发对应"index"事件的元方法
