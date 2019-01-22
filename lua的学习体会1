@@ -18,3 +18,10 @@
   lua_State *L = pStack->getLuaState();
   
   详情请见博客：https://www.cnblogs.com/sevenyuan/p/4511808.html
+  
+  3 lua的require小结：
+    加载过程：查找package.loaded 确认目标模块是否加载过，没加载过，则通过package.loaders 获取loader（加载器）通过loader去加载目标模块
+    
+    “ . ” 在require时会被替换为文件系统的分隔符，比如/，所以脚本所在的文件夹命名不能包含”.”
+    
+    package.loaders：是一个控制require如何加载模块的表，表内的值是一个搜索函数，调用require时，会升序地调用所有搜索函数；
