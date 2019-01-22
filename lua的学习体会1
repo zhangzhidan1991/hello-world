@@ -21,14 +21,25 @@
    也就是说如果设置索引为-2（index = -2），也相当于删除掉栈顶元素
 
    lua_pushvalue (lua_State *L, int index)：将栈中索引index对应的元素拷贝一份，压到栈顶
+   
    lua_remove(lua_State *L, int index)：将栈中索引index对应的元素移除，该索引之上的元素将移动以填补空缺
+   
    lua_insert(lua_State *L, int index)：弹出栈顶元素，并插入索引index位置  
+   
    lua_replace(lua_State* L, int index)：将栈顶元素压入索引index对应的位置而不移动任何元素，同时弹出栈顶元素（因此指定位置的元素的值被替换）
+   
+   lua_gettable (lua_State *L, int index)：将t[k]值压入栈顶，这里的t是指有效索引index指向的值，k是指栈顶的值(会被弹出栈)
+   
    lua_getglobal(lua_State *L, const char *name)：把全局的name的值压到栈顶
-   lua_getfield (lua_State *L, int index, const char *k)：把t[k]值压入栈顶，这里的t是指有效索引index指向的值。在Lua中，这个函数可能触发对应"index"事件的元方法
-   lua_setfield (lua_State *L, int index, const char *k)：等价于t[k] = v，这里的t是指有效索引index指向的值，V表示栈顶值。这个函数将把这个值弹出堆栈
+   
+   lua_getfield (lua_State *L, int index, const char *k)：把t[k]值压入栈顶，这里的t是指有效索引index指向的值
+   
+   lua_setfield (lua_State *L, int index, const char *k)：等价于t[k] = v，这里的t是指有效索引index指向的值，V表示栈顶值(会被弹出栈)
+   
    lua_is***(lua_State *L,int index)：检查变量是不是某个类型，index指示变量的顺序，栈顶为-1
+  
    lua_to***(lua_State *L,int index)：获取栈中的变量，然后转换为某个指定的类型，并返回
+  
    lua_close(lua_State *L)：销毁所有在指定的栈上的所有对象，同时释放所有该State使用的动态分配的空间。
    
    其他接口请参见官方文档：http://pgl.yoyo.org/luai/i/3.7+Functions+and+Types
