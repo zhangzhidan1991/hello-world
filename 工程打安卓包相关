@@ -1,0 +1,10 @@
+
+1 先安装android studio(一个开发安卓程序IDE)
+
+2 JNI简单介绍：定义：Java Native Interface，即Java本地接口。 作用是使得Java与本地其他类型语言（如C、C++）交互
+  也就是说JNI是属于java的，与安卓没有直接关系
+  
+3 NDK简介：Native Development Kit，是Android的一个工具开发包，即NDK是属于安卓的，与JAVA没有直接关系
+  作用：快速开发C、 C++的动态库，并自动将so和应用一起打包成APK，即可通过NDK在Android中使用JNI与本地代码（如C、C++）交互
+  应用场景：在Android的场景下使用JNI
+  
