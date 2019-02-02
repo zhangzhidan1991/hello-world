@@ -82,3 +82,41 @@
             [2]. 将恒定状态(比如要遍历的table)和控制变量作为实参，调用迭代器函数
             [3]. 将迭代器函数的返回值赋给变量列表，如果控制变量为nil，则迭代结束
             [4]. 如果控制变量是有效值，则执行循环体，随后再次调用迭代器函数，执行下一次迭代
+            
+  5 lua的弱引用
+    举个例子：
+    local t = {}
+    local key1 = {name = "key1"}
+    t[key1] = 1
+    key1 = nil
+    
+     -- 强制进行一次垃圾收集
+    collectgarbage()
+    
+    print(t[key1])
+    
+    此时会正常输出1，原因：key1本身引用了一次{}，在将key1用做t的key之后，则t中又对该{}做了一次引用，之后key1赋值为nil，但是其原先引用的{}
+    仍然被t中引用着，所以此时触发的垃圾收集被不会使key1原本指向的那个{}被回收，因此t[key1]可以照常访问。
+    
+    
+    弱引用的的应用场景：希望在key1 = nil，collectgarbage()之后key1指向的{}就被释放掉
+    
+    用法：   
+    -- 给t设置一个元表，增加__mode元方法，赋值为“k”
+    setmetatable(t, {__mode = "k"});
+    
+    t[key1] = 1
+    key1 = nil
+    
+    -- 强制进行一次垃圾收集
+    collectgarbage()
+    
+    print(t[key1])
+    
+    此时将没有输出，原因：在t被创建后，立刻给它设置了元表，元表里有一个__mode字段，赋值为”k”字符串，这表示t中的key都是弱引用了
+    也就是说只要key1 = nil，collectgarbage()之后，其所指向的{}就将被释放掉
+    
+    三种形式的弱引用，对于弱引用table，其实有三种形式：
+    1）key值弱引用，也就是刚刚说到的情况，只要其他地方没有对key值引用，那么，table自身的这个字段也会被删除。设置方法：setmetatable(t, {__mode = “k”});
+    2）value值弱引用，情况类似，只要其他地方没有对value值引用，那么，table的这个value所在的字段也会被删除。设置方法：setmetatable(t, {__mode = “v”});
+    3）key和value弱引用，规则一样，但是key和value都同时生效，任意一个起作用时都会导致table的字段被删除。设置方法：setmetatable(t, {__mode = “kv”});
