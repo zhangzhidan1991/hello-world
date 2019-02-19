@@ -1,19 +1,16 @@
 git fetch origin develop:feature/xxxx --把远程仓库上的develop拉到本地，命名为feature/xxxx，初创分支用一次
 
-git checkout develop      --切换到主干
-git checkout feature/xxxx  --切换分支
-git checkout  filename   --还原掉对某文件所做的修改
+git checkout xxxx  --切换到某分支
+git checkout -- filename   --还原掉对某文件所做的修改
 
 
 你的代码是要合进主干或者需要打分支包才有需要提交到远程仓库，在合进主干前需要rebase
 git pull origin develop --rebase  --推送到远端之前先拉一次最新的主干代码到当前分支
-git push origin feature/xxxx   --推送当前的分支到远端
+git push origin xxx   --推送当前的分支到远端
 
+git pull  --拉取最新代码(在主分支上)
+git chekcout -b xxx  新建分支
 
-在主开发分支操作
-git pull
-git chekcout -b bugfix/zhz_xxx  //新建修复BUG分支
-git chekcout -b feature/zhz_xxx  //新建开发分支
 
 git status          --查看所做的改动文件列表(add 之前先运行这个命令)
 git add dirname or filename --添加改动的文件到暂存区 
@@ -37,3 +34,4 @@ $git stash pop
 删除commit记录方法(删除push失败的记录)
 使用git log命令查看commit的历史记录及其对应的commit_id
 git reset --hard <commit_id> 
+
