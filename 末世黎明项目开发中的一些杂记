@@ -8,5 +8,5 @@
   当前分支:feature/modify_b1
   
   先切换到master，然后拉取一次最新代码:git pull，接着新建一个分支git checkout -b feature/modify_b2
-  然后把分支feature/modify_b1合并过来:git merge --no-ff feature/modify_b1(合并到当前分支)
+  然后把分支feature/modify_b1合并过来:git merge --no-ff -m "xxx" feature/modify_b1(合并到当前分支)
   最后把分支feature/modify_b2推送上去
