@@ -25,7 +25,10 @@
       
     c 叶节点
       该类型的节点包含了最终的逻辑实现，是真正的功能实现单元，常见的叶节点有：条件节点，动作节点
+      
+4 行为树的实现简述
+  参考链接：http://www.aisharing.com/archives/517
 
 
- 参考链接:
+ 其他参考链接:
  1 http://www.aisharing.com/archives/90
