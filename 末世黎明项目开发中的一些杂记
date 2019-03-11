@@ -16,3 +16,6 @@
 
 
   在使用git命令进入到vim编辑器后，可以一直按住esc ，再连续按大写的z两次就退出来了。
+
+ 3 Widget控件相关
+   使用getSize()而不用getContentSize()获取控件大小
