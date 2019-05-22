@@ -28,7 +28,12 @@
    
    lua_replace(lua_State* L, int index)：将栈顶元素压入索引index对应的位置而不移动任何元素，同时弹出栈顶元素（因此指定位置的元素的值被替换）
    
-   lua_gettable (lua_State *L, int index)：将t[k]值压入栈顶，这里的t是指有效索引index指向的值，k是指栈顶的值(会被弹出栈)
+   lua_gettable (lua_State *L, int index)：将t[k]值压入栈顶，这里的t是指有效索引index指向的值，k是指栈顶的值(会被弹出栈)，lua_rawget接口的
+   功能与此类似， 但是作一次直接访问（不触发元方法）
+   
+   lua_settable (lua_State *L, int index); t[k] = v的操作,这里t是指有效索引index指向的值，v指栈顶的值，而k是栈顶之下的那个值。
+    这个函数会把键和值都从堆栈中弹出。和在 Lua 中一样，这个函数可能触发"newindex"事件的元方法。lua_rawset接口与此类似，但是是作
+    一个直接赋值（不触发元方法）
    
    lua_getglobal(lua_State *L, const char *name)：把全局的name的值压到栈顶
    
