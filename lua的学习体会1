@@ -59,7 +59,7 @@
   lua_State保存了整个Lua解释器的状态，每一个运行的脚本文件都在一个动态分配的叫做lua_State的数据结构中运行
   lua_State *L = pStack->getLuaState();
   
-  tolua的原理
+  tolua的相关博客：https://www.cnblogs.com/dbsprite/p/7822063.html
   
   详情请见博客：https://www.cnblogs.com/sevenyuan/p/4511808.html
   
